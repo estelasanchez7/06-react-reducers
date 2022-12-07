@@ -2,6 +2,12 @@ import { useReducer } from "react";
 
 const initialState = { contador: 0 };
 
+const init = (initialState) => {
+  return {
+    contador: initialState.contador + 100,
+  };
+};
+
 const TYPES = {
   INCREMENT: "INCREMENT",
   INCREMENT_5: "INCREMENT_5",
@@ -20,8 +26,8 @@ function reducer(state, action) {
       return { contador: state.contador - 1 };
     case TYPES.DECREMENT_5:
       return { contador: state.contador - action.payload };
-      case TYPES.RESET:
-        return initialState
+    case TYPES.RESET:
+      return initialState;
     default:
       return state;
   }
@@ -29,7 +35,7 @@ function reducer(state, action) {
 
 const Contador = () => {
   //const [contador, setContador] = useState(0);
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState, init);
 
   //const sumar = () => setContador(contador + 1);
   const sumar = () => dispatch({ type: TYPES.INCREMENT });
@@ -41,7 +47,7 @@ const Contador = () => {
 
   const restar5 = () => dispatch({ type: TYPES.DECREMENT_5, payload: 5 });
 
-  const reset =()=> dispatch({type: TYPES.RESET})
+  const reset = () => dispatch({ type: TYPES.RESET });
 
   return (
     <div style={{ textAlign: "center" }}>
