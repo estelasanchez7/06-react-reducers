@@ -1,4 +1,4 @@
-import { TYPES } from "../actions/ShopingActions";
+import { TYPES } from "../actions/shoppingActions";
 
 export const shoppingInitialState = {
     products:[

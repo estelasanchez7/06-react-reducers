@@ -1,6 +1,6 @@
 import Contador from "./components/Contador";
 import ContadorMejorado from "./components/ContadorMejorado";
-import ShopingCart from "./components/ShopingCart";
+import ShopingCart from "./components/ShoppingCart";
 
 function App() {
   return (
